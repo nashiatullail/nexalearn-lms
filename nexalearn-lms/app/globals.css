@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0d1128;
+  --color-surface: #161b3d;
+  --color-surface-2: #1e2450;
+  --color-surface-3: #262d5e;
+  --color-border: #323a6b;
+  --color-gold: #e3b23c;
+  --color-gold-soft: #f0cd76;
+  --color-teal: #3fcdb4;
+  --color-teal-soft: #7fe0cd;
+  --color-rose: #e0708a;
+  --color-text: #f3f4fa;
+  --color-text-muted: #a6add1;
+  --color-text-faint: #6c73a3;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-surface-3: var(--color-surface-3);
+  --color-border: var(--color-border);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-teal: var(--color-teal);
+  --color-teal-soft: var(--color-teal-soft);
+  --color-rose: var(--color-rose);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
+  --font-sans: "Segoe UI", ui-sans-serif, system-ui, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-color: var(--color-surface-3) transparent;
+  scrollbar-width: thin;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.seal-ring {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 62%, var(--color-gold) 62.5%, var(--color-gold) 64%, transparent 64.5%),
+    radial-gradient(circle at 50% 50%, transparent 70%, rgba(227,178,60,0.35) 70.5%, rgba(227,178,60,0.35) 71%, transparent 71.5%);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise { animation: none; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
